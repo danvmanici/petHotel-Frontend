@@ -24,6 +24,7 @@ function App() {
       <button type="button" onClick={singUp}>
         Create
       </button> */}
+      <div />
       <SingUp />
     </>
   );

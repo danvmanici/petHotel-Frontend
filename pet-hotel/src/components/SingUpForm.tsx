@@ -1,58 +1,37 @@
 import React from 'react';
-import {
-  Formik,
-  Field,
-  Form,
-  useField,
-  FieldAttributes,
-  FieldArray,
-} from 'formik';
-import {
-  TextField,
-  Button,
-  Checkbox,
-  Radio,
-  FormControlLabel,
-  Select,
-  MenuItem,
-} from '@mui/material';
+import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import MyTextField from './FormFields/MyTextField';
-import MyRadioField from './FormFields/MyRadioButton';
-import MyCheckboxButton from './FormFields/MyCheckboxButton';
+import './SingUpForm.css';
+import { Button } from '@mui/material';
 
 const validationSchema = yup.object({
   firstName: yup.string().required().max(10),
-  pets: yup.array().of(
-    yup.object({
-      name: yup.string().required(),
-    })
-  ),
 });
 
 const SingUp: React.FC = () => {
   return (
-    <div>
+    <>
+      <div className="custom-shape-divider-top-1659101695">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            className="shape-fill"
+          ></path>
+        </svg>
+      </div>
       <Formik
         validateOnChange={true}
         initialValues={{
           firstName: '',
           lastName: '',
-          isTall: false,
-          cookies: [],
-          yogurt: '',
-          pets: [{ type: 'cat', name: 'jarvis', id: '' + Math.random() }],
         }}
         validationSchema={validationSchema}
-        // validate={values => {
-        //   const errors: Record<string, string> = {};
-
-        //   if (values.firstName.includes("bob")) {
-        //     errors.firstName = "no bob";
-        //   }
-
-        //   return errors;
-        // }}
         onSubmit={(data, { setSubmitting }) => {
           setSubmitting(true);
           // make async call
@@ -61,99 +40,19 @@ const SingUp: React.FC = () => {
         }}
       >
         {({ values, errors, isSubmitting }) => (
-          <Form>
-            <MyTextField placeholder="first name" name="firstName" />
-            <div>
-              <Field
-                placeholder="last name"
-                name="lastName"
-                type="input"
-                as={TextField}
-              />
-            </div>
-            <MyCheckboxButton name="isTall" type="checkbox" label="isTall" />
-            <div>cookies:</div>
-            <MyCheckboxButton
-              name="cookies"
-              type="checkbox"
-              value="chocolate chip"
+          <Form className="singUpForm">
+            <MyTextField
+              name="firstName"
+              label="First name"
+              variant="standard"
             />
-            <MyCheckboxButton
-              name="cookies"
-              type="checkbox"
-              value="snickerdoodle"
-            />
-            <MyCheckboxButton name="cookies" type="checkbox" value="sugar" />
-            <div>yogurt</div>
-            <MyRadioField
-              name="yogurt"
-              type="radio"
-              value="peach"
-              label="peach"
-            />
-            <MyRadioField
-              name="yogurt"
-              type="radio"
-              value="blueberry"
-              label="blueberry"
-            />
-            <MyRadioField
-              name="yogurt"
-              type="radio"
-              value="apple"
-              label="apple"
-            />
-            <MyRadioField name="lol" type="radio" value="lol" />
-            <FieldArray name="pets">
-              {(arrayHelpers) => (
-                <div>
-                  <Button
-                    onClick={() =>
-                      arrayHelpers.push({
-                        type: 'frog',
-                        name: '',
-                        id: '' + Math.random(),
-                      })
-                    }
-                  >
-                    add pet
-                  </Button>
-                  {values.pets.map((pet, index) => {
-                    return (
-                      <div key={pet.id}>
-                        <MyTextField
-                          placeholder="pet name"
-                          name={`pets.${index}.name`}
-                        />
-                        <Field
-                          name={`pets.${index}.type`}
-                          type="select"
-                          as={Select}
-                        >
-                          <MenuItem value="cat">cat</MenuItem>
-                          <MenuItem value="dog">dog</MenuItem>
-                          <MenuItem value="frog">frog</MenuItem>
-                        </Field>
-                        <Button onClick={() => arrayHelpers.remove(index)}>
-                          x
-                        </Button>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </FieldArray>
-            <div>
-              <Button disabled={isSubmitting} type="submit">
-                submit
-              </Button>
-            </div>
-            <pre>{JSON.stringify(values, null, 2)}</pre>
-            <pre>{JSON.stringify(errors, null, 2)}</pre>
+            <MyTextField name="lastName" label="lastName" variant="standard" />
+            <MyTextField name="email" label="email" variant="standard" />
+            <Button type="submit">Submit</Button>
           </Form>
         )}
       </Formik>
-    </div>
+    </>
   );
 };
 
