@@ -15,6 +15,7 @@ const MyTextField: React.FC<MyTextFieldProps> = ({ ...props }) => {
   const [field, meta] = useField<{}>(props);
   const errorText = meta.error && meta.touched ? meta.error : '';
   const variant = !!props.variant ? props.variant : 'outlined';
+  const size = !!props.size ? props.size : 'small';
 
   return (
     <TextField
@@ -22,7 +23,15 @@ const MyTextField: React.FC<MyTextFieldProps> = ({ ...props }) => {
       label={props.label}
       variant={variant}
       margin={props.margin}
-      size={props.size}
+      size={size}
+      sx={{
+        '& label': {
+          color: 'grey',
+          '&.Mui-focused': {
+            color: 'green',
+          },
+        },
+      }}
       {...field}
       helperText={errorText}
       error={!!errorText}

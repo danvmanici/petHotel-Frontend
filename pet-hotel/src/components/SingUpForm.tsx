@@ -48,35 +48,30 @@ const SingUp: React.FC = () => {
               label="First Name"
               variant="standard"
               margin="dense"
-              size="small"
             />
             <MyTextField
               name="lastName"
               label="Last Name"
               variant="standard"
               margin="dense"
-              size="small"
             />
             <MyTextField
               name="email"
               label="Email"
               variant="standard"
               margin="dense"
-              size="small"
             />
             <MyTextField
               name="password"
               label="Password"
               variant="standard"
               margin="dense"
-              size="small"
             />
             <MyTextField
               name="confirmPassword"
               label="Confirm Password"
               variant="standard"
               margin="dense"
-              size="small"
             />
             <button
               type="submit"
