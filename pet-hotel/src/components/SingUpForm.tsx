@@ -3,7 +3,6 @@ import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import MyTextField from './FormFields/MyTextField';
 import './SingUpForm.css';
-import { Button } from '@mui/material';
 
 const validationSchema = yup.object({
   firstName: yup.string().required().max(10),
@@ -30,6 +29,9 @@ const SingUp: React.FC = () => {
         initialValues={{
           firstName: '',
           lastName: '',
+          email: '',
+          password: '',
+          confirmPassword: '',
         }}
         validationSchema={validationSchema}
         onSubmit={(data, { setSubmitting }) => {
@@ -40,15 +42,48 @@ const SingUp: React.FC = () => {
         }}
       >
         {({ values, errors, isSubmitting }) => (
-          <Form className="singUpForm">
+          <Form className="singUpForm shadow-xl border-none rounded-lg">
             <MyTextField
               name="firstName"
-              label="First name"
+              label="First Name"
               variant="standard"
+              margin="dense"
+              size="small"
             />
-            <MyTextField name="lastName" label="lastName" variant="standard" />
-            <MyTextField name="email" label="email" variant="standard" />
-            <Button type="submit">Submit</Button>
+            <MyTextField
+              name="lastName"
+              label="Last Name"
+              variant="standard"
+              margin="dense"
+              size="small"
+            />
+            <MyTextField
+              name="email"
+              label="Email"
+              variant="standard"
+              margin="dense"
+              size="small"
+            />
+            <MyTextField
+              name="password"
+              label="Password"
+              variant="standard"
+              margin="dense"
+              size="small"
+            />
+            <MyTextField
+              name="confirmPassword"
+              label="Confirm Password"
+              variant="standard"
+              margin="dense"
+              size="small"
+            />
+            <button
+              type="submit"
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-8 rounded-full my-4"
+            >
+              SingUp
+            </button>
           </Form>
         )}
       </Formik>
