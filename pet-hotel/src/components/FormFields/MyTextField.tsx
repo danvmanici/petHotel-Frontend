@@ -26,10 +26,12 @@ const MyTextField: React.FC<MyTextFieldProps> = ({ ...props }) => {
       size={size}
       sx={{
         '& label': {
-          color: 'grey',
           '&.Mui-focused': {
             color: 'green',
           },
+        },
+        '& .MuiInput-underline:after': {
+          borderBottomColor: 'green',
         },
       }}
       {...field}
