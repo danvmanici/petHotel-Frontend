@@ -1,5 +1,5 @@
 .singUpForm {
-    width: 27.5rem;
+    width: 30rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -9,7 +9,7 @@
 }
 
 .singUpForm__header {
-    width: 25rem;
+    width: 28.5rem;
     margin-top: 0.5rem;
     margin-bottom: 1.5rem;
     display: flex;
@@ -19,9 +19,16 @@
 
 }
 
+.singUpForm__header__text {
+
+    font-size: 1.5rem;
+
+}
+
 .singUpForm__socialButtons {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    width: 28.5rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -29,15 +36,7 @@
 
 }
 
-.singUpForm__socialButtons {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
 
-}
 
 .singUpForm__termsAndConditions-updatesAndOffers {
     display: flex;
@@ -78,5 +77,10 @@
 
     .singUpForm {
         width: 15rem;
+    }
+
+    .singUpForm__socialButtons {
+        flex-direction: column;
+        height: 7.5rem;
     }
 }

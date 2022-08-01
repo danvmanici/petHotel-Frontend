@@ -8,7 +8,7 @@ import { Button, Link } from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-import logo from '../images/logo.png';
+import logo from '../images/logoCat.jpg';
 
 const validationSchema = yup.object({
   firstName: yup.string().required().max(10),
@@ -17,7 +17,7 @@ const validationSchema = yup.object({
 const SingUp: React.FC = () => {
   return (
     <>
-      {/* <div className="custom-shape-divider-top-1659101695">
+      <div className="custom-shape-divider-top-1659101695">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ const SingUp: React.FC = () => {
             className="shape-fill"
           ></path>
         </svg>
-      </div> */}
+      </div>
       <Formik
         validateOnChange={true}
         initialValues={{
@@ -51,11 +51,10 @@ const SingUp: React.FC = () => {
           <Form className="singUpForm shadow-xl border-none rounded-lg">
             <section className="singUpForm__header">
               <span>
-                Sing up
-                <br />
-                Digilent
+                <p className="singUpForm__header__text">Sing up</p>
+                <p>Pet Hotel</p>
               </span>
-              <img src={logo} alt="logo" width="50px" />
+              <img src={logo} alt="logo" width="60px" />
             </section>
             <MyTextField
               name="firstName"
@@ -90,19 +89,40 @@ const SingUp: React.FC = () => {
             <section className="singUpForm__socialButtons">
               <Button
                 variant="contained"
-                style={{ lineHeight: '1rem', backgroundColor: 'red' }}
+                style={{
+                  backgroundColor: 'red',
+                  fontSize: '0.6rem',
+                  textTransform: 'capitalize',
+                  padding: '0.25rem',
+                  paddingLeft: '0.6rem',
+                  paddingRight: '0.6rem',
+                }}
               >
                 <GoogleIcon />
                 Sign up with Google
               </Button>
               <Button
                 variant="contained"
-                style={{ lineHeight: '1rem', backgroundColor: 'grey' }}
+                style={{
+                  backgroundColor: 'grey',
+                  fontSize: '0.6rem',
+                  textTransform: 'capitalize',
+                  padding: '0.25rem',
+                  paddingLeft: '0.6rem',
+                  paddingRight: '0.6rem',
+                }}
               >
                 <GitHubIcon />
                 Sign up with GitHub
               </Button>
-              <Button variant="contained" style={{ lineHeight: '1rem' }}>
+              <Button
+                variant="contained"
+                style={{
+                  fontSize: '0.6rem',
+                  textTransform: 'capitalize',
+                  padding: '0.25rem',
+                }}
+              >
                 <FacebookOutlinedIcon />
                 Sign up with Facebook
               </Button>
@@ -125,7 +145,11 @@ const SingUp: React.FC = () => {
               type="submit"
               variant="contained"
               fullWidth
-              style={{ backgroundColor: 'green', lineHeight: '1.25rem' }}
+              style={{
+                backgroundColor: 'green',
+                lineHeight: '1.25rem',
+                marginTop: '0.75rem',
+              }}
             >
               Sing up
             </Button>
