@@ -1,22 +1,45 @@
 .singUpForm {
-    width: 30rem;
+    width: 27.5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
     margin: 10rem auto;
+    padding: 0.75rem;
 }
 
-.singUpForm__inputsSection {
-    width: 28rem;
-    margin: 1rem;
+.singUpForm__header {
+    width: 25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
-.singUpForm__inputsSection__termsAndConditions-updatesAndOffers {
+.singUpForm__socialButtons {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.singUpForm__socialButtons {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.singUpForm__termsAndConditions-updatesAndOffers {
     display: flex;
     flex-direction: row;
     justify-content: start;

@@ -5,6 +5,10 @@ import MyTextField from './FormFields/MyTextField';
 import './SingUpForm.css';
 import MyCheckboxButton from './FormFields/MyCheckboxButton';
 import { Button, Link } from '@mui/material';
+import GoogleIcon from '@mui/icons-material/Google';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+import logo from '../images/logo.png';
 
 const validationSchema = yup.object({
   firstName: yup.string().required().max(10),
@@ -13,7 +17,7 @@ const validationSchema = yup.object({
 const SingUp: React.FC = () => {
   return (
     <>
-      <div className="custom-shape-divider-top-1659101695">
+      {/* <div className="custom-shape-divider-top-1659101695">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +29,7 @@ const SingUp: React.FC = () => {
             className="shape-fill"
           ></path>
         </svg>
-      </div>
+      </div> */}
       <Formik
         validateOnChange={true}
         initialValues={{
@@ -45,57 +49,86 @@ const SingUp: React.FC = () => {
       >
         {({ values, errors, isSubmitting }) => (
           <Form className="singUpForm shadow-xl border-none rounded-lg">
-            <section className="singUpForm__inputsSection">
-              <MyTextField
-                name="firstName"
-                label="First Name"
-                variant="outlined"
-                margin="dense"
-              />
-              <MyTextField
-                name="lastName"
-                label="Last Name"
-                variant="outlined"
-                margin="dense"
-              />
-              <MyTextField
-                name="email"
-                label="Email"
-                variant="outlined"
-                margin="dense"
-              />
-              <MyTextField
-                name="password"
-                label="Password"
-                variant="outlined"
-                margin="dense"
-              />
-              <MyTextField
-                name="confirmPassword"
-                label="Confirm Password"
-                variant="outlined"
-                margin="dense"
-              />
-
-              <section className="singUpForm__inputsSection__termsAndConditions-updatesAndOffers-updatesAndOffers">
-                <MyCheckboxButton name="termsAndConditions" />I accept the
-                &nbsp;
-                <Link
-                  href="https://digilent.com/"
-                  style={{ textDecoration: 'none' }}
-                >
-                  Terms and Conditions
-                </Link>
-              </section>
-              <section className="singUpForm__inputsSection__termsAndConditions-updatesAndOffers-updatesAndOffers">
-                <MyCheckboxButton name="termsAndConditions" />I would like to
-                receive updates and offers.
-              </section>
-
-              <Button type="submit" variant="contained" fullWidth>
+            <section className="singUpForm__header">
+              <span>
                 Sing up
+                <br />
+                Digilent
+              </span>
+              <img src={logo} alt="logo" width="50px" />
+            </section>
+            <MyTextField
+              name="firstName"
+              label="First name"
+              variant="outlined"
+              margin="dense"
+            />
+            <MyTextField
+              name="lastName"
+              label="Last name"
+              variant="outlined"
+              margin="dense"
+            />
+            <MyTextField
+              name="email"
+              label="Email"
+              variant="outlined"
+              margin="dense"
+            />
+            <MyTextField
+              name="password"
+              label="Password"
+              variant="outlined"
+              margin="dense"
+            />
+            <MyTextField
+              name="confirmPassword"
+              label="Confirm password"
+              variant="outlined"
+              margin="dense"
+            />
+            <section className="singUpForm__socialButtons">
+              <Button
+                variant="contained"
+                style={{ lineHeight: '1rem', backgroundColor: 'red' }}
+              >
+                <GoogleIcon />
+                Sign up with Google
+              </Button>
+              <Button
+                variant="contained"
+                style={{ lineHeight: '1rem', backgroundColor: 'grey' }}
+              >
+                <GitHubIcon />
+                Sign up with GitHub
+              </Button>
+              <Button variant="contained" style={{ lineHeight: '1rem' }}>
+                <FacebookOutlinedIcon />
+                Sign up with Facebook
               </Button>
             </section>
+            <section className="singUpForm__termsAndConditions-updatesAndOffers-updatesAndOffers">
+              <MyCheckboxButton name="termsAndConditions" />I accept the &nbsp;
+              <Link
+                href="https://digilent.com/"
+                style={{ textDecoration: 'none' }}
+              >
+                Terms and Conditions
+              </Link>
+            </section>
+            <section className="singUpForm__termsAndConditions-updatesAndOffers-updatesAndOffers">
+              <MyCheckboxButton name="termsAndConditions" />I would like to
+              receive updates and offers.
+            </section>
+
+            <Button
+              type="submit"
+              variant="contained"
+              fullWidth
+              style={{ backgroundColor: 'green', lineHeight: '1.25rem' }}
+            >
+              Sing up
+            </Button>
           </Form>
         )}
       </Formik>
