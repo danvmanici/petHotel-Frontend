@@ -19,6 +19,7 @@ const MyTextField: React.FC<MyTextFieldProps> = ({ ...props }) => {
 
   return (
     <TextField
+      fullWidth
       placeholder={props.placeholder}
       label={props.label}
       variant={variant}

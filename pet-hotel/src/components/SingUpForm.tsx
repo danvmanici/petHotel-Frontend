@@ -3,6 +3,8 @@ import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import MyTextField from './FormFields/MyTextField';
 import './SingUpForm.css';
+import MyCheckboxButton from './FormFields/MyCheckboxButton';
+import { Button, Link } from '@mui/material';
 
 const validationSchema = yup.object({
   firstName: yup.string().required().max(10),
@@ -43,42 +45,57 @@ const SingUp: React.FC = () => {
       >
         {({ values, errors, isSubmitting }) => (
           <Form className="singUpForm shadow-xl border-none rounded-lg">
-            <MyTextField
-              name="firstName"
-              label="First Name"
-              variant="standard"
-              margin="dense"
-            />
-            <MyTextField
-              name="lastName"
-              label="Last Name"
-              variant="standard"
-              margin="dense"
-            />
-            <MyTextField
-              name="email"
-              label="Email"
-              variant="standard"
-              margin="dense"
-            />
-            <MyTextField
-              name="password"
-              label="Password"
-              variant="standard"
-              margin="dense"
-            />
-            <MyTextField
-              name="confirmPassword"
-              label="Confirm Password"
-              variant="standard"
-              margin="dense"
-            />
-            <button
-              type="submit"
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-8 rounded-full my-4"
-            >
-              SingUp
-            </button>
+            <section className="singUpForm__inputsSection">
+              <MyTextField
+                name="firstName"
+                label="First Name"
+                variant="outlined"
+                margin="dense"
+              />
+              <MyTextField
+                name="lastName"
+                label="Last Name"
+                variant="outlined"
+                margin="dense"
+              />
+              <MyTextField
+                name="email"
+                label="Email"
+                variant="outlined"
+                margin="dense"
+              />
+              <MyTextField
+                name="password"
+                label="Password"
+                variant="outlined"
+                margin="dense"
+              />
+              <MyTextField
+                name="confirmPassword"
+                label="Confirm Password"
+                variant="outlined"
+                margin="dense"
+              />
+
+              <section className="singUpForm__inputsSection__termsAndConditions-updatesAndOffers-updatesAndOffers">
+                <MyCheckboxButton name="termsAndConditions" />I accept the
+                &nbsp;
+                <Link
+                  href="https://digilent.com/"
+                  style={{ textDecoration: 'none' }}
+                >
+                  Terms and Conditions
+                </Link>
+              </section>
+              <section className="singUpForm__inputsSection__termsAndConditions-updatesAndOffers-updatesAndOffers">
+                <MyCheckboxButton name="termsAndConditions" />I would like to
+                receive updates and offers.
+              </section>
+
+              <Button type="submit" variant="contained" fullWidth>
+                Sing up
+              </Button>
+            </section>
           </Form>
         )}
       </Formik>

@@ -1,39 +1,59 @@
 .singUpForm {
-  width: 18rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  margin: 10rem auto;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin: 10rem auto;
 }
 
+.singUpForm__inputsSection {
+    width: 28rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.singUpForm__inputsSection__termsAndConditions-updatesAndOffers {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+}
+
+
+
 .custom-shape-divider-top-1659101695 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
 }
 
 .custom-shape-divider-top-1659101695 svg {
-  position: relative;
-  display: block;
-  width: calc(112% + 1.3px);
-  height: 135px;
+    position: relative;
+    display: block;
+    width: calc(112% + 1.3px);
+    height: 135px;
 }
 
 .custom-shape-divider-top-1659101695 .shape-fill {
-  fill: #50e3c2;
+    fill: #50e3c2;
 }
 
 /** For mobile devices **/
 @media (max-width: 767px) {
-  .custom-shape-divider-top-1659101695 svg {
-    width: calc(118% + 1.3px);
-    height: 77px;
-  }
-  .singUpForm {
-    width: 15rem;
-  }
+    .custom-shape-divider-top-1659101695 svg {
+        width: calc(118% + 1.3px);
+        height: 77px;
+    }
+
+    .singUpForm {
+        width: 15rem;
+    }
 }
