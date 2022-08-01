@@ -32,6 +32,9 @@ const validationSchema = yup.object({
   confirmPassword: yup
     .string()
     .oneOf([yup.ref('password'), null], 'Passwords must match'),
+  termsAndConditions: yup
+    .bool()
+    .oneOf([true], 'Please accept the terms and conditions'),
 });
 
 const SingUp: React.FC = () => {
@@ -58,6 +61,8 @@ const SingUp: React.FC = () => {
           email: '',
           password: '',
           confirmPassword: '',
+          termsAndConditions: false,
+          updatesAndOffers: false,
         }}
         validationSchema={validationSchema}
         onSubmit={(data) => {
@@ -154,9 +159,10 @@ const SingUp: React.FC = () => {
               >
                 Terms and Conditions
               </Link>
+              {errors.termsAndConditions && <p>{errors.termsAndConditions}</p>}
             </section>
             <section className="singUpForm__termsAndConditions-updatesAndOffers-updatesAndOffers">
-              <MyCheckboxButton name="termsAndConditions" />I would like to
+              <MyCheckboxButton name="updatesAndOffers" />I would like to
               receive updates and offers.
             </section>
 
