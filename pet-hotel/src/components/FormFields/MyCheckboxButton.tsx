@@ -14,7 +14,7 @@ const MyCheckboxButton: React.FC<MyCheckboxProps> = ({ ...props }) => {
           control={<Checkbox />}
           label={props.label}
           sx={{
-            '&$checked': { '&.Mui-checked': { color: 'green' } },
+            '&$checked': { '&.Mui-checked': { color: 'green' } }, //doesn't work
           }}
         />
       )}

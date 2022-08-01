@@ -11,7 +11,27 @@ import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import logo from '../images/logoCat.jpg';
 
 const validationSchema = yup.object({
-  firstName: yup.string().required().max(10),
+  firstName: yup
+    .string()
+    .required('First name is a required field!')
+    .max(10)
+    .min(3),
+  lastName: yup
+    .string()
+    .required('Last name is a required field!')
+    .max(10)
+    .min(3),
+  email: yup.string().email().required('Email is a required field!'),
+  password: yup
+    .string()
+    .required('Password is a required field!')
+    .matches(
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+      'Must contain 8 characters, one uppercase, one lowercase, one number and one special character'
+    ),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref('password'), null], 'Passwords must match'),
 });
 
 const SingUp: React.FC = () => {
@@ -40,11 +60,8 @@ const SingUp: React.FC = () => {
           confirmPassword: '',
         }}
         validationSchema={validationSchema}
-        onSubmit={(data, { setSubmitting }) => {
-          setSubmitting(true);
-          // make async call
-          console.log('submit: ', data);
-          setSubmitting(false);
+        onSubmit={(data) => {
+          console.log(data);
         }}
       >
         {({ values, errors, isSubmitting }) => (
@@ -79,12 +96,14 @@ const SingUp: React.FC = () => {
               label="Password"
               variant="outlined"
               margin="dense"
+              type="password"
             />
             <MyTextField
               name="confirmPassword"
               label="Confirm password"
               variant="outlined"
               margin="dense"
+              type="password"
             />
             <section className="singUpForm__socialButtons">
               <Button
@@ -149,6 +168,7 @@ const SingUp: React.FC = () => {
                 backgroundColor: 'green',
                 lineHeight: '1.25rem',
                 marginTop: '0.75rem',
+                textTransform: 'capitalize',
               }}
             >
               Sing up

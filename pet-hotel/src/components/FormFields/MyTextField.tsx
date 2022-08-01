@@ -7,6 +7,7 @@ interface MUITextField {
   variant?: 'standard' | 'outlined' | 'filled' | undefined;
   margin?: 'dense' | 'normal' | 'none' | undefined;
   size?: 'small' | 'medium' | undefined;
+  type?: 'password' | undefined;
 }
 
 type MyTextFieldProps = MUITextField & FieldAttributes<{}>;
@@ -25,6 +26,7 @@ const MyTextField: React.FC<MyTextFieldProps> = ({ ...props }) => {
       variant={variant}
       margin={props.margin}
       size={size}
+      type={props.type}
       sx={{
         '& label': {
           '&.Mui-focused': {
