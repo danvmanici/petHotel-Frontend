@@ -132,8 +132,8 @@ const SingUp: React.FC = () => {
                   fontSize: '0.6rem',
                   textTransform: 'capitalize',
                   padding: '0.25rem',
-                  paddingLeft: '0.6rem',
-                  paddingRight: '0.6rem',
+                  paddingLeft: '0.65rem',
+                  paddingRight: '0.65rem',
                 }}
               >
                 <GitHubIcon />
@@ -152,7 +152,8 @@ const SingUp: React.FC = () => {
               </Button>
             </section>
             <section className="singUpForm__termsAndConditions-updatesAndOffers-updatesAndOffers">
-              <MyCheckboxButton name="termsAndConditions" />I accept the &nbsp;
+              <MyCheckboxButton name="termsAndConditions" color="success" />I
+              accept the &nbsp;
               <Link
                 href="https://digilent.com/"
                 style={{ textDecoration: 'none' }}
@@ -164,8 +165,8 @@ const SingUp: React.FC = () => {
               )}
             </section>
             <section className="singUpForm__termsAndConditions-updatesAndOffers-updatesAndOffers">
-              <MyCheckboxButton name="updatesAndOffers" />I would like to
-              receive updates and offers.
+              <MyCheckboxButton name="updatesAndOffers" color="success" />I
+              would like to receive updates and offers.
             </section>
 
             <Button

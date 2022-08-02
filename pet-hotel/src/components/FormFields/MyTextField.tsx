@@ -17,7 +17,7 @@ const MyTextField: React.FC<MyTextFieldProps> = ({ ...props }) => {
   const errorText = meta.error && meta.touched ? meta.error : '';
   const variant = !!props.variant ? props.variant : 'outlined';
   const size = !!props.size ? props.size : 'small';
-
+  // console.log(meta);
   return (
     <TextField
       fullWidth

@@ -2,23 +2,25 @@ import { Checkbox, FormControlLabel } from '@mui/material';
 import { FieldAttributes, useField } from 'formik';
 import React from 'react';
 
-type MyCheckboxProps = { label?: string | undefined } & FieldAttributes<{}>;
+type MyCheckboxProps = {
+  label?: string | undefined;
+  color?: 'default' | 'success' | 'primary' | 'secondary' | undefined;
+} & FieldAttributes<{}>;
 
 const MyCheckboxButton: React.FC<MyCheckboxProps> = ({ ...props }) => {
   const [field] = useField<{}>(props);
+  const color = !!props.color ? props.color : 'primary';
   return (
     <>
       {!!props.label && (
         <FormControlLabel
           {...field}
-          control={<Checkbox />}
+          control={<Checkbox color={color} />}
           label={props.label}
-          sx={{
-            '&$checked': { '&.Mui-checked': { color: 'green' } }, //doesn't work
-          }}
         />
       )}
-      {!props.label && <Checkbox {...field} />}
+
+      {!props.label && <Checkbox {...field} color={color} />}
     </>
   );
 };
