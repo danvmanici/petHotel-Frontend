@@ -36,6 +36,11 @@ const MyTextField: React.FC<MyTextFieldProps> = ({ ...props }) => {
         '& .MuiInput-underline:after': {
           borderBottomColor: 'green',
         },
+        '& .MuiOutlinedInput-root': {
+          '&.Mui-focused fieldset': {
+            borderColor: 'green',
+          },
+        },
       }}
       {...field}
       helperText={errorText}

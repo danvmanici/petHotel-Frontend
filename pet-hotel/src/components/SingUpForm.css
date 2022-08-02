@@ -75,10 +75,17 @@
 
     .singUpForm {
         width: 15rem;
+        margin: 2rem auto;
+
+    }
+
+    .singUpForm__header {
+        width: 13.5rem;
     }
 
     .singUpForm__socialButtons {
         flex-direction: column;
         height: 7.5rem;
+        width: 13.5rem;
     }
 }

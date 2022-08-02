@@ -34,7 +34,7 @@ const validationSchema = yup.object({
     .oneOf([yup.ref('password'), null], 'Passwords must match'),
   termsAndConditions: yup
     .bool()
-    .oneOf([true], 'Please accept the terms and conditions'),
+    .oneOf([true], 'Please accept the terms and conditions!'),
 });
 
 const SingUp: React.FC = () => {
@@ -159,7 +159,9 @@ const SingUp: React.FC = () => {
               >
                 Terms and Conditions
               </Link>
-              {errors.termsAndConditions && <p>{errors.termsAndConditions}</p>}
+              {errors.termsAndConditions && (
+                <p style={{ color: 'red' }}>{errors.termsAndConditions}</p>
+              )}
             </section>
             <section className="singUpForm__termsAndConditions-updatesAndOffers-updatesAndOffers">
               <MyCheckboxButton name="updatesAndOffers" />I would like to
