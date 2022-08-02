@@ -1,15 +1,14 @@
 import axiosInstance from './axiosInstance';
-import { Owner } from '../modules/Owner';
+import { Owner } from '../interfaces/Owner';
 
-export const createOwner = async () => {
-  const payload: Owner = {
-    first_name: 'Ezio',
-    last_name: 'Ezio',
-    address: 'Cluj',
-    mobile: '',
-    email: 'ezio@gmail.ro',
+export const registerOwner = async (data: Owner) => {
+  const payload = {
+    first_name: data.firstName,
+    last_name: data.lastName,
+    email: data.email,
+    password: data.password,
+    confirm_password: data.confirmPassword,
   };
-
   try {
     await axiosInstance.post('owners/', payload);
   } catch (error) {

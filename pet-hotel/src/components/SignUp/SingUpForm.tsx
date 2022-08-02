@@ -9,6 +9,8 @@ import GoogleIcon from '@mui/icons-material/Google';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import logo from '../../images/logoCat.jpg';
+import { registerOwner } from '../../services/ownerService';
+import { Owner } from '../../interfaces/Owner';
 
 const validationSchema = yup.object({
   firstName: yup
@@ -36,6 +38,10 @@ const validationSchema = yup.object({
     .bool()
     .oneOf([true], 'Please accept the terms and conditions!'),
 });
+
+const submitSignUpFormData = async (data: Owner) => {
+  await registerOwner(data);
+};
 
 const SingUp: React.FC = () => {
   return (
@@ -66,7 +72,8 @@ const SingUp: React.FC = () => {
         }}
         validationSchema={validationSchema}
         onSubmit={(data, onSubmitProps) => {
-          console.log(data);
+          submitSignUpFormData(data);
+
           onSubmitProps.setSubmitting(false);
         }}
       >
@@ -112,6 +119,7 @@ const SingUp: React.FC = () => {
                 margin="dense"
                 type="password"
               />
+
               <Stack spacing={0.35} direction="row">
                 <Button
                   variant="contained"
@@ -154,6 +162,7 @@ const SingUp: React.FC = () => {
                   Sign up with Facebook
                 </Button>
               </Stack>
+
               <section>
                 <MyCheckboxButton name="termsAndConditions" color="success" />I
                 accept the &nbsp;
