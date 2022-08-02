@@ -16,7 +16,7 @@ const MyTextField: React.FC<MyTextFieldProps> = ({ ...props }) => {
   const [field, meta] = useField<{}>(props);
   const errorText = meta.error && meta.touched ? meta.error : '';
   const variant = !!props.variant ? props.variant : 'outlined';
-  const size = !!props.size ? props.size : 'small';
+  const size = !!props.size ? props.size : 'medium';
   // console.log(meta);
   return (
     <TextField

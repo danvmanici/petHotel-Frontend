@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-around;
-    margin: 10rem auto;
+    margin: 4rem auto;
     padding: 0.75rem;
 }
 
@@ -19,11 +19,20 @@
 
 }
 
-.singUpForm__header__text {
+.singUpForm__header__textSingUp {
     font-size: 1.5rem;
 }
 
-.singUpForm__socialButtons {
+.singUpForm__content {
+    width: 28.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+
+}
+
+.singUpForm__content__socialButtons {
     width: 28.5rem;
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
@@ -36,12 +45,11 @@
 
 
 
-.singUpForm__termsAndConditions-updatesAndOffers {
+.singUpForm__content__termsAndConditions-updatesAndOffers {
     display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: center;
-
 }
 
 
@@ -83,7 +91,11 @@
         width: 13.5rem;
     }
 
-    .singUpForm__socialButtons {
+    .singUpForm__content {
+        width: 13.5rem;
+    }
+
+    .singUpForm__content__socialButtons {
         flex-direction: column;
         height: 7.5rem;
         width: 13.5rem;
