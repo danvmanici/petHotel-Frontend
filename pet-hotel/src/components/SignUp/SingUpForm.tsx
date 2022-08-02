@@ -120,7 +120,7 @@ const SingUp: React.FC = () => {
                 type="password"
               />
 
-              <Stack spacing={0.35} direction="row">
+              <section className="singUpForm__content__socialButtons">
                 <Button
                   variant="contained"
                   startIcon={<GoogleIcon />}
@@ -161,7 +161,7 @@ const SingUp: React.FC = () => {
                 >
                   Sign up with Facebook
                 </Button>
-              </Stack>
+              </section>
 
               <section>
                 <MyCheckboxButton name="termsAndConditions" color="success" />I
