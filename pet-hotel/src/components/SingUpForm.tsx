@@ -169,7 +169,7 @@ const SingUp: React.FC = () => {
                   </p>
                 )}
               </section>
-              <section className="singUpForm__content__termsAndConditions-updatesAndOffers-updatesAndOffers">
+              <section className="singUpForm__termsAndConditions-updatesAndOffers-updatesAndOffers">
                 <MyCheckboxButton name="updatesAndOffers" color="success" />I
                 would like to receive updates and offers.
               </section>
