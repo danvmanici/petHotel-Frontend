@@ -10,7 +10,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import logo from '../../images/logoCat.jpg';
 import { registerOwner } from '../../services/ownerService';
-import { Owner } from '../../interfaces/Owner';
 
 const validationSchema = yup.object({
   firstName: yup
@@ -38,10 +37,6 @@ const validationSchema = yup.object({
     .bool()
     .oneOf([true], 'Please accept the terms and conditions!'),
 });
-
-const submitSignUpFormData = async (data: Owner) => {
-  await registerOwner(data);
-};
 
 const SingUp: React.FC = () => {
   return (
@@ -71,10 +66,10 @@ const SingUp: React.FC = () => {
           updatesAndOffers: false,
         }}
         validationSchema={validationSchema}
-        onSubmit={(data, onSubmitProps) => {
-          submitSignUpFormData(data);
-
+        onSubmit={async (data, onSubmitProps) => {
+          await registerOwner(data);
           onSubmitProps.setSubmitting(false);
+          onSubmitProps.resetForm();
         }}
       >
         {({ values, errors, isSubmitting, isValid, touched }) => (
