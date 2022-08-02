@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import './App.css';
-import SingUp from './components/SingUpForm';
+import SingUp from './components/SignUp/SingUpForm';
 import { createOwner, getOwners } from './services/ownerService';
 
 function App() {
