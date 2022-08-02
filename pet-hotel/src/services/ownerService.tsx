@@ -10,7 +10,8 @@ export const registerOwner = async (data: Owner) => {
     confirm_password: data.confirmPassword,
   };
   try {
-    await axiosInstance.post('owners/', payload);
+    let response = await axiosInstance.post('owners/', payload);
+    return response.data;
   } catch (error) {
     console.log(error);
   }

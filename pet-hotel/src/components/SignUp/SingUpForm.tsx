@@ -10,6 +10,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import logo from '../../images/logoCat.jpg';
 import { registerOwner } from '../../services/ownerService';
+import { Owner } from '../../interfaces/Owner';
 
 const validationSchema = yup.object({
   firstName: yup
@@ -67,9 +68,13 @@ const SingUp: React.FC = () => {
         }}
         validationSchema={validationSchema}
         onSubmit={async (data, onSubmitProps) => {
-          await registerOwner(data);
-          onSubmitProps.setSubmitting(false);
-          onSubmitProps.resetForm();
+          let mydata: Owner = await registerOwner(data);
+          if (typeof mydata !== 'undefined') {
+            onSubmitProps.setSubmitting(false);
+            onSubmitProps.resetForm();
+          } else {
+            console.error('data is undefined');
+          }
         }}
       >
         {({ values, errors, isSubmitting, isValid, touched }) => (
