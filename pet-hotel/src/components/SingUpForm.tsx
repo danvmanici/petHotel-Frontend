@@ -7,7 +7,7 @@ import MyCheckboxButton from './FormFields/MyCheckboxButton';
 import { Button, Link } from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import logo from '../images/logoCat.jpg';
 
 const validationSchema = yup.object({
@@ -65,11 +65,12 @@ const SingUp: React.FC = () => {
           updatesAndOffers: false,
         }}
         validationSchema={validationSchema}
-        onSubmit={(data) => {
+        onSubmit={(data, onSubmitProps) => {
           console.log(data);
+          onSubmitProps.setSubmitting(false);
         }}
       >
-        {({ values, errors, isSubmitting }) => (
+        {({ values, errors, isSubmitting, isValid, touched }) => (
           <Form className="singUpForm shadow-xl border-none rounded-lg">
             <section className="singUpForm__header">
               <span>
@@ -113,6 +114,7 @@ const SingUp: React.FC = () => {
             <section className="singUpForm__socialButtons">
               <Button
                 variant="contained"
+                startIcon={<GoogleIcon />}
                 style={{
                   backgroundColor: 'red',
                   fontSize: '0.6rem',
@@ -122,11 +124,11 @@ const SingUp: React.FC = () => {
                   paddingRight: '0.6rem',
                 }}
               >
-                <GoogleIcon />
                 Sign up with Google
               </Button>
               <Button
                 variant="contained"
+                startIcon={<GitHubIcon />}
                 style={{
                   backgroundColor: 'grey',
                   fontSize: '0.6rem',
@@ -136,18 +138,18 @@ const SingUp: React.FC = () => {
                   paddingRight: '0.65rem',
                 }}
               >
-                <GitHubIcon />
                 Sign up with GitHub
               </Button>
               <Button
                 variant="contained"
+                startIcon={<FacebookRoundedIcon />}
                 style={{
                   fontSize: '0.6rem',
                   textTransform: 'capitalize',
                   padding: '0.25rem',
+                  paddingLeft: '0.65rem',
                 }}
               >
-                <FacebookOutlinedIcon />
                 Sign up with Facebook
               </Button>
             </section>
@@ -160,8 +162,10 @@ const SingUp: React.FC = () => {
               >
                 Terms and Conditions
               </Link>
-              {errors.termsAndConditions && (
-                <p style={{ color: 'red' }}>{errors.termsAndConditions}</p>
+              {errors.termsAndConditions && touched.termsAndConditions && (
+                <p style={{ color: 'red' }}>
+                  &nbsp;&nbsp;&nbsp;{errors.termsAndConditions}
+                </p>
               )}
             </section>
             <section className="singUpForm__termsAndConditions-updatesAndOffers-updatesAndOffers">
@@ -172,6 +176,7 @@ const SingUp: React.FC = () => {
             <Button
               type="submit"
               variant="contained"
+              disabled={!isValid || isSubmitting}
               fullWidth
               style={{
                 backgroundColor: 'green',
