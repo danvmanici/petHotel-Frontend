@@ -7,12 +7,12 @@ import PetsPage from './Pages/PetsPage';
 import ProfilePage from './Pages/ProfilePage';
 import SignUpPage from './Pages/SignUpPage';
 import NotFoundPage from './Pages/NotFoundPage';
-import ActiveLastBreadcrumb from './components/NavBar/NavBar';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
   return (
     <>
-      <ActiveLastBreadcrumb />
+      <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/profile" element={<ProfilePage />} />
